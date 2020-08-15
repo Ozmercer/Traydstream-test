@@ -10,6 +10,7 @@ import { MockComponent } from 'ng-mocks';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { By } from '@angular/platform-browser';
 import { HeroService } from '../../modules/core/services/hero.service';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 describe('HomePage', () => {
   let component: HomePageComponent;
@@ -20,7 +21,8 @@ describe('HomePage', () => {
   configureTestSuite(() => {
     TestBed.configureTestingModule({
       imports: [
-        NoopAnimationsModule
+        NoopAnimationsModule,
+        MatDialogModule
       ],
       declarations: [
         MockComponent(HeroCardComponent),

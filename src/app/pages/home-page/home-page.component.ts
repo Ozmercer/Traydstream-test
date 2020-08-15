@@ -31,8 +31,6 @@ export class HomePageComponent implements OnInit, OnDestroy {
       defaultIfEmpty([])
     );
     this.UUIDs$ = this.traydStreamService.UUIDs$.subscribe(value => {
-      console.log('UUIDs:', value);
-
       this.UUIDs = value;
     })
   }
@@ -42,13 +40,6 @@ export class HomePageComponent implements OnInit, OnDestroy {
       width: '50%',
       minHeight: '300px',
       data: { UUIDs: this.UUIDs }
-    });
-
-    dialogRef.afterClosed().subscribe((result: string[]) => {
-      console.log(result);
-      if (result) {
-        this.traydStreamService.UUIDs = result;
-      }
     });
   }
 

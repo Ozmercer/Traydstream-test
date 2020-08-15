@@ -1,5 +1,5 @@
 <h1>UUIDs list</h1>
-<button mat-raised-button (click)="addUUID()">Add new</button>
+<button class="add" mat-raised-button (click)="addUUID()">Add new</button>
 <ol class="ids">
-    <li *ngFor="let UUID of data.UUIDs">{{UUID}}</li>
+    <li class="UUID" *ngFor="let UUID of data.UUIDs">{{UUID}}</li>
 </ol>
