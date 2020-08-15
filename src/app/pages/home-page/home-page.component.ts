@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Hero } from '../../modules/heroes/shared/hero.model';
 import { AppConfig } from '../../configs/app.config';
 import { Observable, Subscription } from 'rxjs';
@@ -14,7 +14,7 @@ import { TraydStreamService } from 'src/app/modules/core/services/trayd-stream.s
   styleUrls: ['./home-page.component.scss']
 })
 
-export class HomePageComponent implements OnInit {
+export class HomePageComponent implements OnInit, OnDestroy {
   heroes$: Observable<Hero[]>;
   UUIDs$: Subscription;
   UUIDs: string[];
@@ -32,7 +32,7 @@ export class HomePageComponent implements OnInit {
     );
     this.UUIDs$ = this.traydStreamService.UUIDs$.subscribe(value => {
       console.log('UUIDs:', value);
-      
+
       this.UUIDs = value;
     })
   }
@@ -40,7 +40,8 @@ export class HomePageComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(TraydStreamDialog, {
       width: '50%',
-      data: {UUIDs: this.UUIDs}
+      minHeight: '300px',
+      data: { UUIDs: this.UUIDs }
     });
 
     dialogRef.afterClosed().subscribe((result: string[]) => {
@@ -49,5 +50,9 @@ export class HomePageComponent implements OnInit {
         this.traydStreamService.UUIDs = result;
       }
     });
+  }
+
+  ngOnDestroy() {
+    this.UUIDs$.unsubscribe();
   }
 }

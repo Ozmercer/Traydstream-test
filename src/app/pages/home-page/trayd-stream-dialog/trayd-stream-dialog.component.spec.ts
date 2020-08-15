@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { TraydStreamDialog } from './trayd-stream-dialog.component';
 
 describe('TraydStreamDialogComponent', () => {
-  let component: TraydStreamDialogComponent;
+  let component: TraydStreamDialog;
   let fixture: ComponentFixture<TraydStreamDialog>;
 
   beforeEach(async(() => {
