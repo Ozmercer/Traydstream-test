@@ -19,7 +19,7 @@
     "build:ssr:prod": "npm run builds:prod && ng run angularexampleapp:server:production",
     "serve:ssr": "node dist/server/main.js",
     "build:library": "ng build --configuration=production ngx-example-library",
-    "ci": "npm run lint && npm run test && npm run e2e && npm run build:ssr:prod",
+    "ci": "npm run lint && npm run test && npm run build:ssr:prod",
     "bundle-report": "ng build --configuration=production --stats-json && webpack-bundle-analyzer dist/browser/stats-es2015.json",
     "release:minor": "standard-version --release-as minor && git push --follow-tags origin master",
     "release:major": "standard-version --release-as major && git push --follow-tags origin master",
