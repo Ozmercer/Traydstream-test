@@ -5,7 +5,7 @@ import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/materia
 import { TraydStreamService } from 'src/app/modules/core/services/trayd-stream.service';
 import { By } from '@angular/platform-browser';
 
-fdescribe('TraydStreamDialogComponent', () => {
+describe('TraydStreamDialogComponent', () => {
   let component: TraydStreamDialog;
   let fixture: ComponentFixture<TraydStreamDialog>;
   const mockDialogRef = {

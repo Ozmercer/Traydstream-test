@@ -36,7 +36,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(TraydStreamDialog, {
+    this.dialog.open(TraydStreamDialog, {
       width: '50%',
       minHeight: '300px',
       data: { UUIDs: this.UUIDs }

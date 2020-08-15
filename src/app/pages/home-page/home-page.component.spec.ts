@@ -12,11 +12,12 @@ import { By } from '@angular/platform-browser';
 import { HeroService } from '../../modules/core/services/hero.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
-describe('HomePage', () => {
+fdescribe('HomePage', () => {
   let component: HomePageComponent;
   let fixture: ComponentFixture<HomePageComponent>;
 
   const heroServiceSpy = jasmine.createSpyObj('HeroService', ['getHeroes']);
+  const dialogSpy = jasmine.createSpyObj('MatDialog', ['open']);
 
   configureTestSuite(() => {
     TestBed.configureTestingModule({
@@ -31,7 +32,8 @@ describe('HomePage', () => {
         HomePageComponent
       ],
       providers: [
-        { provide: HeroService, useValue: heroServiceSpy }
+        { provide: HeroService, useValue: heroServiceSpy },
+        { provide: MatDialog, useValue: dialogSpy }
       ]
     });
   });
@@ -52,4 +54,13 @@ describe('HomePage', () => {
       expect(fixture.debugElement.queryAll(By.css('app-hero-card')).length).toBe(1);
     });
   }));
+
+  it('should open a modal when clicking on button', () => {
+    expect(dialogSpy.open).not.toHaveBeenCalled();
+
+    fixture.nativeElement.querySelector('.modal-toggle').click()
+    fixture.detectChanges();
+
+    expect(dialogSpy.open).toHaveBeenCalledTimes(1)
+  });
 });
