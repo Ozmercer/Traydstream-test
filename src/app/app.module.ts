@@ -10,7 +10,7 @@ import { Error404PageComponent } from './pages/error404-page/error404-page.compo
 import localeEs from '@angular/common/locales/es';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { TraydStreamDialog } from './pages/home-page/trayd-stream-dialog/trayd-stream-dialog.component';
+import { TraydStreamDialogComponent } from './pages/home-page/trayd-stream-dialog/trayd-stream-dialog.component';
 
 registerLocaleData(localeEs, 'es');
 
@@ -27,7 +27,7 @@ registerLocaleData(localeEs, 'es');
     HomePageComponent,
     Error404PageComponent,
     AppComponent,
-    TraydStreamDialog
+    TraydStreamDialogComponent
   ]
 })
 

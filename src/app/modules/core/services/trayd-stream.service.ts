@@ -5,18 +5,19 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class TraydStreamService {
-  _UUIDs = new BehaviorSubject<string[]>([]);
+  _ids = new BehaviorSubject<string[]>([]);
 
-  constructor() {}
-   get UUIDs() {
-     return this._UUIDs.getValue();
-   }
+  constructor() { }
 
-   get UUIDs$() {
-     return this._UUIDs.asObservable();
-   }
+  get UUIDs$() {
+    return this._ids.asObservable();
+  }
 
-   set UUIDs(ids: string[]) {
-     this._UUIDs.next(ids);
-   }
+  get UUIDs() {
+    return this._ids.getValue();
+  }
+
+  set UUIDs(ids: string[]) {
+    this._ids.next(ids);
+  }
 }

@@ -58,9 +58,9 @@ fdescribe('HomePage', () => {
   it('should open a modal when clicking on button', () => {
     expect(dialogSpy.open).not.toHaveBeenCalled();
 
-    fixture.nativeElement.querySelector('.modal-toggle').click()
+    fixture.nativeElement.querySelector('.modal-toggle').click();
     fixture.detectChanges();
 
-    expect(dialogSpy.open).toHaveBeenCalledTimes(1)
+    expect(dialogSpy.open).toHaveBeenCalledTimes(1);
   });
 });

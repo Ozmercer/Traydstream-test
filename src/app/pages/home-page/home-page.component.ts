@@ -5,7 +5,7 @@ import { Observable, Subscription } from 'rxjs';
 import { defaultIfEmpty, map } from 'rxjs/operators';
 import { HeroService } from '../../modules/core/services/hero.service';
 import { MatDialog } from '@angular/material/dialog';
-import { TraydStreamDialog } from './trayd-stream-dialog/trayd-stream-dialog.component';
+import { TraydStreamDialogComponent } from './trayd-stream-dialog/trayd-stream-dialog.component';
 import { TraydStreamService } from 'src/app/modules/core/services/trayd-stream.service';
 
 @Component({
@@ -32,11 +32,11 @@ export class HomePageComponent implements OnInit, OnDestroy {
     );
     this.UUIDs$ = this.traydStreamService.UUIDs$.subscribe(value => {
       this.UUIDs = value;
-    })
+    });
   }
 
   openDialog(): void {
-    this.dialog.open(TraydStreamDialog, {
+    this.dialog.open(TraydStreamDialogComponent, {
       width: '50%',
       minHeight: '300px',
       data: { UUIDs: this.UUIDs }
