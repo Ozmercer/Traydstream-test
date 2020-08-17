@@ -12,7 +12,7 @@ import { By } from '@angular/platform-browser';
 import { HeroService } from '../../modules/core/services/hero.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
-fdescribe('HomePage', () => {
+describe('HomePage', () => {
   let component: HomePageComponent;
   let fixture: ComponentFixture<HomePageComponent>;
 
